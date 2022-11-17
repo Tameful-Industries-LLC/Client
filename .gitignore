@@ -1,0 +1,5 @@
+.idea
+target
+src/main/java/gq/
+src/main/java/me/
+dependency-reduced-pom.xml
