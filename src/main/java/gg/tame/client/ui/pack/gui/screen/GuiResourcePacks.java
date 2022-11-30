@@ -1,7 +1,7 @@
 package gg.tame.client.ui.pack.gui.screen;
 
 import gg.tame.client.TameClient;
-import gg.tame.client.module.data.setting.types.ChoiceSetting;
+import gg.tame.client.module.data.setting.types.string.ChoiceSetting;
 import gg.tame.client.ui.pack.gui.components.ResourcePacksFolder;
 import gg.tame.client.ui.pack.gui.components.ResourcePacksWatcher;
 import gg.tame.client.ui.pack.gui.components.list.GuiResourcePacksAvailable;
@@ -103,7 +103,7 @@ public class GuiResourcePacks extends GuiScreen {
                 this.width / 2 + 118, this.height - 71,
                 86,
                 20,
-                "Red String: " + (TameClient.getInstance().getGlobalSettings().redString.getValue() ? "ON" : "OFF"));
+                "Red String: " + (TameClient.getInstance().getGlobalSettings().coloredString.getValue() ? "ON" : "OFF"));
         this.buttonList.add(this.redStringButton);
         this.backgroundButton = new GuiOptionButton(
                 102,
@@ -193,23 +193,23 @@ public class GuiResourcePacks extends GuiScreen {
             this.mc.displayGuiScreen(this.previousScreen);
         } else if (button.id == this.clearGlassButton.id) {
             ChoiceSetting clearGlass = TameClient.getInstance().getGlobalSettings().clearGlass;
-            for (int i = 0; i < clearGlass.getAcceptedStringValues().length; ++i) {
-                if (!clearGlass.getAcceptedStringValues()[i].toLowerCase().equalsIgnoreCase(clearGlass.getValue()))
+            for (int i = 0; i < clearGlass.getAcceptedValues().length; ++i) {
+                if (!clearGlass.getAcceptedValues()[i].toLowerCase().equalsIgnoreCase(clearGlass.getValue()))
                     continue;
-                if (i + 1 >= clearGlass.getAcceptedStringValues().length) {
-                    clearGlass.setValue(clearGlass.getAcceptedStringValues()[0]);
+                if (i + 1 >= clearGlass.getAcceptedValues().length) {
+                    clearGlass.setValue(clearGlass.getAcceptedValues()[0]);
                     break;
                 }
-                clearGlass.setValue(clearGlass.getAcceptedStringValues()[i + 1]);
-                clearGlass.setValue(clearGlass.getAcceptedStringValues()[i + 1]);
+                clearGlass.setValue(clearGlass.getAcceptedValues()[i + 1]);
+                clearGlass.setValue(clearGlass.getAcceptedValues()[i + 1]);
                 break;
             }
             this.clearGlassButton.displayString = "Clear Glass: " + clearGlass.getValue();
             this.mc.renderGlobal.loadRenderers();
         } else if (button.id == this.redStringButton.id) {
-            boolean redString = TameClient.getInstance().getGlobalSettings().redString.getValue();
+            boolean redString = TameClient.getInstance().getGlobalSettings().coloredString.getValue();
             this.redStringButton.displayString = "Red String: " + (!redString ? "ON" : "OFF");
-            TameClient.getInstance().getGlobalSettings().redString.setValue(!redString);
+            TameClient.getInstance().getGlobalSettings().coloredString.setValue(!redString);
             this.mc.renderGlobal.loadRenderers();
         } else if (button.id == this.backgroundButton.id) {
             boolean transparentBackground = TameClient.getInstance().getGlobalSettings().transparentBackground.getValue();
