@@ -35,16 +35,10 @@ public class TameClient {
         new ResourcePackManager();
 
         // Mods
-
         this.globalSettings = new GlobalSettings();
 
         // Settings
-
         (this.resourceController = new ResourceController()).onLoad();
-
-    }
-
-    public void shutdown() {
 
     }
 

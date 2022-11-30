@@ -1,4 +1,4 @@
-package gg.tame.client.module.data.setting.types;
+package gg.tame.client.module.data.setting.types.string;
 
 import gg.tame.client.module.AbstractModule;
 import gg.tame.client.module.data.setting.Setting;
@@ -13,7 +13,7 @@ import java.util.List;
 public class ChoiceSetting extends Setting {
 
     @Getter
-    private String[] acceptedStringValues;
+    private String[] acceptedValues;
 
     public ChoiceSetting(AbstractModule container, String name) {
         super(container, name);
@@ -27,8 +27,8 @@ public class ChoiceSetting extends Setting {
         return (String) this.value;
     }
 
-    public ChoiceSetting setAcceptedStringValues(String... values) {
-        this.acceptedStringValues = values;
+    public ChoiceSetting setAcceptedValues(String... values) {
+        this.acceptedValues = values;
         return this;
     }
 

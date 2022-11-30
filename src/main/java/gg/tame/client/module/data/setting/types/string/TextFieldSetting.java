@@ -1,4 +1,4 @@
-package gg.tame.client.module.data.setting.types;
+package gg.tame.client.module.data.setting.types.string;
 
 import gg.tame.client.module.AbstractModule;
 import gg.tame.client.module.data.setting.Setting;

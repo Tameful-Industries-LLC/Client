@@ -1,6 +1,5 @@
 package gg.tame.client.module;
 
-import gg.tame.client.module.AbstractModule;
 import gg.tame.client.module.impl.fix.ModernKeybindHandling;
 import gg.tame.client.module.impl.hud.ModuleFPS;
 import lombok.Getter;

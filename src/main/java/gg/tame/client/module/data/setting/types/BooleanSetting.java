@@ -27,4 +27,5 @@ public class BooleanSetting extends Setting {
         this.value = value;
         return this;
     }
+
 }

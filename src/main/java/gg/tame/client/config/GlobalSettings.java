@@ -2,8 +2,9 @@ package gg.tame.client.config;
 
 import gg.tame.client.module.data.setting.Setting;
 import gg.tame.client.module.data.setting.types.BooleanSetting;
-import gg.tame.client.module.data.setting.types.ChoiceSetting;
-import gg.tame.client.module.data.setting.types.LabelSetting;
+import gg.tame.client.module.data.setting.types.integer.ColorSetting;
+import gg.tame.client.module.data.setting.types.string.ChoiceSetting;
+import gg.tame.client.module.data.setting.types.string.LabelSetting;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +24,9 @@ public class GlobalSettings {
 
     public BooleanSetting transparentBackground;
     public ChoiceSetting clearGlass;
-    public BooleanSetting redString;
-    // TODO: color setting for a custom red string color
+    public BooleanSetting coloredString;
+
+    public ColorSetting stringColor;
 
     // modern keybind handling
     public BooleanSetting modernKeybindHandling;
@@ -45,10 +47,13 @@ public class GlobalSettings {
         this.renderSettings = new LabelSetting(this.settingsList, "Render Settings");
         this.clearGlass = new ChoiceSetting(this.settingsList, "Clear Glass")
                 .setValue("OFF")
-                .setAcceptedStringValues("OFF", "NORMAL", "ALL");
+                .setAcceptedValues("OFF", "NORMAL", "ALL");
 
-        this.redString = new BooleanSetting(this.settingsList, "Colored/Red String")
+        this.coloredString = new BooleanSetting(this.settingsList, "Colored/Red String")
                 .setValue(false);
+
+        this.stringColor = new ColorSetting(this.settingsList, "String Color")
+                .setValue(-1);
 
         this.transparentBackground = new BooleanSetting(this.settingsList, "Transparent Background")
                 .setValue(true);
@@ -83,7 +88,7 @@ public class GlobalSettings {
                 .setValue(true);
 
         this.packSortMethod = new ChoiceSetting(this.settingsList, "Sorting Method")
-                .setAcceptedStringValues("A-Z", "Z-A")
+                .setAcceptedValues("A-Z", "Z-A")
                 .setValue("A-Z");
 
     }
